@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KABAKA FOUNDATION FUND SPONSORSHIP FORMS</title>
+    <style>
+      :root {
+        --primary: #0f3d5c;
+        --primary-dark: #0b2d46;
+        --accent: #d9a441;
+        --accent-soft: #fff4d8;
+        --bg: #f3f7fb;
+        --card: #ffffff;
+        --text: #1d2b36;
+        --muted: #5f6f7d;
+        --border: #dfe7ee;
+        --success: #1f9d6b;
+        --success-soft: #eafaf3;
+        --danger: #c44747;
+        --danger-soft: #fdecec;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #edf4f9 0%, #dfeef8 100%);
+        color: var(--text);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 36px 18px;
+      }
+
+      .page-wrap {
+        width: 100%;
+        max-width: 1000px;
+        display: flex;
+        align-items: stretch;
+        background: rgba(255, 255, 255, 0.96);
+        border: 1px solid rgba(15, 61, 92, 0.08);
+        border-radius: 24px;
+        overflow: hidden;
+        box-shadow: 0 25px 60px rgba(12, 39, 58, 0.15);
+      }
+
+      .form-shell {
+        width: 100%;
+        background: rgba(255, 255, 255, 0.94);
+      }
+
+      .header {
+        background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+        color: #fff;
+        padding: 30px 32px 22px;
+        text-align: center;
+      }
+
+      .header-content {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 18px;
+      }
+
+      .header-text {
+        flex: 4;
+      }
+
+      .header-logo {
+        flex: 1;
+        max-width: 120px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .header-logo img {
+        width: 100%;
+        max-width: 110px;
+        aspect-ratio: 1 / 1;
+        object-fit: cover;
+        border-radius: 16px;
+        border: 3px solid rgba(255, 255, 255, 0.32);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .header h1 {
+        margin: 0;
+        font-size: clamp(1.5rem, 2vw, 2.3rem);
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        line-height: 1.2;
+        font-weight: 700;
+      }
+
+      .header p {
+        margin: 10px 0 0;
+        opacity: 0.9;
+        font-size: 0.96rem;
+      }
+
+      form {
+        padding: 30px 32px 26px;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 22px 26px;
+      }
+
+      .field {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .field label {
+        font-weight: 600;
+        margin-bottom: 9px;
+        color: var(--text);
+      }
+
+      .required-tag {
+        color: #c54242;
+        margin-left: 4px;
+      }
+
+      .field input,
+      .field select {
+        width: 100%;
+        padding: 14px 15px;
+        border: 1.5px solid var(--border);
+        border-radius: 12px;
+        font-size: 1rem;
+        color: var(--text);
+        background: #fbfdff;
+        transition: all 0.2s ease;
+      }
+
+      .field input:focus,
+      .field select:focus {
+        outline: none;
+        border-color: rgba(13, 99, 148, 0.75);
+        box-shadow: 0 0 0 4px rgba(13, 99, 148, 0.12);
+        background: #fff;
+      }
+
+      .field input:invalid,
+      .field select:invalid {
+        border-color: #e0b5b5;
+      }
+
+      .field.full {
+        grid-column: 1 / -1;
+      }
+
+      .submit-row {
+        margin-top: 26px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        flex-wrap: wrap;
+      }
+
+      button[type="submit"] {
+        border: none;
+        background: linear-gradient(135deg, var(--accent) 0%, #c78c1d 100%);
+        color: #fff;
+        font-size: 1rem;
+        font-weight: 700;
+        padding: 15px 30px;
+        border-radius: 12px;
+        cursor: pointer;
+        box-shadow: 0 12px 25px rgba(217, 164, 65, 0.28);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      button[type="submit"]:hover:not(:disabled) {
+        transform: translateY(-1px);
+        box-shadow: 0 16px 30px rgba(217, 164, 65, 0.35);
+      }
+
+      button[type="submit"]:disabled {
+        opacity: 0.55;
+        cursor: not-allowed;
+      }
+
+      .status-box {
+        min-width: 180px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        padding: 10px 18px;
+        border-radius: 999px;
+        background: var(--success-soft);
+        color: var(--success);
+        border: 2px solid rgba(31, 157, 107, 0.2);
+        font-weight: 700;
+        letter-spacing: 0.03em;
+        opacity: 0;
+        transform: scale(0.85);
+        transition: opacity 0.35s ease, transform 0.35s ease;
+      }
+
+      .status-box.show {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      .status-box.error {
+        background: var(--danger-soft);
+        color: var(--danger);
+        border-color: rgba(196, 71, 71, 0.18);
+      }
+
+      .status-icon {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(31, 157, 107, 0.14);
+        font-size: 1.2rem;
+        font-weight: 900;
+      }
+
+      .status-box.error .status-icon {
+        background: rgba(196, 71, 71, 0.12);
+      }
+
+      @media (max-width: 820px) {
+        .page-wrap {
+          flex-direction: column;
+        }
+
+        .form-shell {
+          width: 100%;
+        }
+
+        .header-content {
+          flex-direction: column;
+        }
+
+        .header-logo {
+          max-width: 90px;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .grid {
+          grid-template-columns: 1fr;
+        }
+
+        form {
+          padding: 20px 18px 24px;
+        }
+
+        .header {
+          padding: 24px 20px 18px;
+        }
+
+        .submit-row {
+          justify-content: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page-wrap">
+      <div class="form-shell">
+        <div class="header">
+          <div class="header-content">
+            <div class="header-text">
+              <h1>KABAKA FOUNDATION FUND SPONSORSHIP FORMS</h1>
+              <p>Support and empower the next generation.</p>
+            </div>
+            <div class="header-logo">
+              <img src="kabake.jpeg" alt="Kabaka Foundation" />
+            </div>
+          </div>
+        </div>
+
+        <form id="sponsorshipForm" novalidate>
+          <div class="grid">
+            <div class="field">
+              <label for="surname">SURNAME <span class="required-tag">*</span></label>
+              <input id="surname" name="surname" type="text" required />
+            </div>
+
+            <div class="field">
+              <label for="dob">DATE OF BIRTH <span class="required-tag">*</span></label>
+              <input id="dob" name="dob" type="date" required />
+            </div>
+
+            <div class="field">
+              <label for="otherNames">OTHER NAMES <span class="required-tag">*</span></label>
+              <input id="otherNames" name="otherNames" type="text" required />
+            </div>
+
+            <div class="field">
+              <label for="combination">COMBINATION OFFERED <span class="required-tag">*</span></label>
+              <select id="combination" name="combination" required>
+                <option value="">Select combination</option>
+                <option value="PCM">PCM</option>
+                <option value="PCB">PCB</option>
+                <option value="BCM">BCM</option>
+                <option value="HE">HE</option>
+                <option value="ARTS">ARTS</option>
+                <option value="OTHER">Other (specify below)</option>
+              </select>
+            </div>
+
+            <div class="field full" id="otherCombinationField" style="display: none;">
+              <label for="otherCombination">SPECIFY OTHER COMBINATION</label>
+              <input id="otherCombination" name="otherCombination" type="text" placeholder="Enter your combination" />
+            </div>
+
+            <div class="field full">
+              <label for="previousSchool">PREVIOUS SCHOOL (SECONDARY ONLY)</label>
+              <input id="previousSchool" name="previousSchool" type="text" placeholder="Enter previous secondary school" />
+            </div>
+          </div>
+
+          <div class="submit-row">
+            <button id="submitButton" type="submit">SUBMIT</button>
+            <div id="submitStatus" class="status-box" aria-live="polite">
+              <span class="status-icon">✓</span>
+              <span>SUBMITTED</span>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script>
+      const form = document.getElementById('sponsorshipForm');
+      const submitButton = document.getElementById('submitButton');
+      const submitStatus = document.getElementById('submitStatus');
+      const combinationSelect = document.getElementById('combination');
+      const otherCombinationField = document.getElementById('otherCombinationField');
+      const browserKey = btoa(navigator.userAgent + '|' + navigator.language + '|' + screen.width + 'x' + screen.height);
+      const storageKey = 'kabaka_foundation_sponsorship_' + browserKey;
+
+      function showStatus(message, isError = false) {
+        submitStatus.classList.remove('show', 'error');
+        submitStatus.classList.toggle('error', isError);
+        submitStatus.innerHTML = '<span class="status-icon">' + (isError ? '!' : '✓') + '</span><span>' + message + '</span>';
+        submitStatus.classList.add('show');
+      }
+
+      function hideStatus() {
+        submitStatus.classList.remove('show', 'error');
+      }
+
+      function checkSubmittedState() {
+        const alreadySubmitted = localStorage.getItem(storageKey) === 'true';
+        if (alreadySubmitted) {
+          submitButton.disabled = true;
+          showStatus('ALREADY SUBMITTED', true);
+          form.querySelectorAll('input, select').forEach((field) => {
+            field.disabled = true;
+          });
+        }
+      }
+
+      combinationSelect.addEventListener('change', function () {
+        if (this.value === 'OTHER') {
+          otherCombinationField.style.display = 'flex';
+          document.getElementById('otherCombination').setAttribute('required', 'required');
+        } else {
+          otherCombinationField.style.display = 'none';
+          const otherInput = document.getElementById('otherCombination');
+          otherInput.removeAttribute('required');
+          otherInput.value = '';
+        }
+      });
+
+      form.addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        if (localStorage.getItem(storageKey) === 'true') {
+          showStatus('ALREADY SUBMITTED', true);
+          return;
+        }
+
+        if (!form.checkValidity()) {
+          form.reportValidity();
+          return;
+        }
+
+        localStorage.setItem(storageKey, 'true');
+        submitButton.disabled = true;
+        form.querySelectorAll('input, select').forEach((field) => {
+          field.disabled = true;
+        });
+
+        showStatus('SUBMITTED');
+
+        setTimeout(() => {
+          hideStatus();
+        }, 4000);
+
+        setTimeout(() => {
+          form.reset();
+          combinationSelect.value = '';
+          otherCombinationField.style.display = 'none';
+          document.getElementById('otherCombination').value = '';
+          form.querySelectorAll('input, select').forEach((field) => {
+            field.disabled = false;
+          });
+          submitButton.disabled = true;
+        }, 4300);
+      });
+
+      checkSubmittedState();
+    </script>
+  </body>
+</html>
